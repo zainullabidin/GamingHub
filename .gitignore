@@ -3,16 +3,14 @@ build/
 *.o
 *.out
 
-
-gaminghub
-c
-
+GamingHub
 
 .DS_Store
 
 
 __MACOSX/
 
+/lib
 
 .vscode/
 .idea/
