@@ -53,7 +53,7 @@ for(int i=0;i<stlen(name);i++)
         if(!bg.loadFromFile("Snake_Ladder/assets/snake.mp3"))
         cout<<"Unable to load the bg music for snake n ladder";
         sf::Sound snake(bg);
-        snake.setLooping(true);
+        snake.setLoop(true);
         snake.play();
         name();
         clearScreen();

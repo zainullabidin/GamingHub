@@ -4,7 +4,8 @@ project(GamingHub LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(SFML 2.5 COMPONENTS audio system REQUIRED)
+list(APPEND CMAKE_PREFIX_PATH "/usr/local/Cellar/sfml@2/2.6.2_1")
+find_package(SFML COMPONENTS audio system REQUIRED)
 
 include_directories(
     ${CMAKE_SOURCE_DIR}
@@ -15,8 +16,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/Snake_Ladder/src
     ${CMAKE_SOURCE_DIR}/TicTacToe/src
 )
-
-
 
 set(SOURCES
     main.cpp
@@ -31,5 +30,8 @@ set(SOURCES
 
 add_executable(GamingHub ${SOURCES})
 
-
-target_link_libraries(GamingHub PRIVATE sfml-audio sfml-system)
+if(TARGET SFML::Audio)
+    target_link_libraries(GamingHub PRIVATE SFML::Audio SFML::System)
+else()
+    target_link_libraries(GamingHub PRIVATE sfml-audio sfml-system)
+endif()

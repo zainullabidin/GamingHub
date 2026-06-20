@@ -442,7 +442,7 @@
         cout<<"Unable to load the bg music";
         sf::Sound m(bg);
 
-        m.setLooping(true);
+        m.setLoop(true);
         m.play();
         clearScreen();
 

@@ -14,7 +14,7 @@ int main()
  if(!bg.loadFromFile("assets/gamin.mp3"))
   cout<<"Unable to load the main bg music";
   sf::Sound b(bg);
-  b.setLooping(true);
+  b.setLoop(true);
   b.play();
   srand(time(0));
     int mainchoice=0;

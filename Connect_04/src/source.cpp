@@ -788,7 +788,7 @@ cout<<"                                                            ███    
         if(!bg.loadFromFile("Connect_04/assets/c4.mp3"))
         cout<<"Unlable to load bg music";
         sf::Sound b(bg);
-        b.setLooping(true);
+        b.setLoop(true);
         b.play();
         clearScreen();
 

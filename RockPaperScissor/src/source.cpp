@@ -41,7 +41,7 @@
         cout<<"Unable to load background music\n";
     }
      sf::Sound background(bg);
-     background.setLooping(true);
+     background.setLoop(true);
     background.play();
     clearScreen();
         name();
