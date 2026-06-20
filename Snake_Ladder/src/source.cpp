@@ -1,5 +1,5 @@
 #include"header.h"
-#include"../../leaderboard/src/header.h"
+#include"leaderboard_header.h"
 
     void snake::name()
 {

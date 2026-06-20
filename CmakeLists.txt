@@ -9,7 +9,7 @@ find_package(SFML 2.5 COMPONENTS audio system REQUIRED)
 include_directories(
     ${CMAKE_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/Connect_04/src
-    ${CMAKE_SOURCE_DIR}/Leaderboard/src
+    ${CMAKE_SOURCE_DIR}/leaderboard/src
     ${CMAKE_SOURCE_DIR}/Match_Cards/src
     ${CMAKE_SOURCE_DIR}/RockPaperScissor/src
     ${CMAKE_SOURCE_DIR}/Snake_Ladder/src
@@ -17,11 +17,12 @@ include_directories(
 )
 
 
+
 set(SOURCES
     main.cpp
 
     Connect_04/src/source.cpp
-    Leaderboard/src/source.cpp
+    leaderboard/src/source.cpp
     Match_Cards/src/source.cpp
     RockPaperScissor/src/source.cpp
     Snake_Ladder/src/source.cpp

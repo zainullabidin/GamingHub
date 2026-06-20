@@ -1,4 +1,4 @@
-#include"header.h"
+#include"leaderboard_header.h"
 
 //constructor
 leaderboard::leaderboard()

@@ -1,5 +1,5 @@
-#include"tic.h"
-#include"../../leaderboard/src/header.h"
+#include"header.h"
+#include"leaderboard_header"
 
    void Playtic::updatename(string name,int player)//setter 
    {
