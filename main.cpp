@@ -4,7 +4,7 @@
 #include"RockPaperScissor/src/header.h"
 #include"Snake_Ladder/src/header.h"
 #include"TicTacToe/src/header.h"
-#include"leaderboard/leaderboard.h"
+#include"leaderboard/src/leaderboard_header.h"
 
 
 int main()
@@ -17,7 +17,7 @@ int main()
   b.setLooping(true);
   b.play();
   srand(time(0));
-    int mainchoice;
+    int mainchoice=0;
     int flag=0;
 
   while(mainchoice!=7)
@@ -66,6 +66,8 @@ int main()
         flag=1;
 
     }
+    else
+    flag=0;
   }
   if(mainchoice==1)
   {

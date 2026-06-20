@@ -50,7 +50,7 @@ for(int i=0;i<stlen(name);i++)
     {
         clearScreen();
         sf::SoundBuffer bg;
-        if(!bg.loadFromFile("snake/assets/snake.mp3"))
+        if(!bg.loadFromFile("Snake_Ladder/assets/snake.mp3"))
         cout<<"Unable to load the bg music for snake n ladder";
         sf::Sound snake(bg);
         snake.setLooping(true);
@@ -97,7 +97,7 @@ for(int i=0;i<stlen(name);i++)
     void snake::mainplaypvc()
     {
         sf::SoundBuffer w;
-        if(!w.loadFromFile("snake/assets/win.mp3"))
+        if(!w.loadFromFile("Snake_Ladder/assets/win.mp3"))
         cout<<"Unable to load win sound\n";
         sf::Sound win(w);
 
@@ -169,7 +169,7 @@ for(int i=0;i<stlen(name);i++)
     void snake::mainplaypvp()
     {
         sf::SoundBuffer w;
-        if(!w.loadFromFile("snake/assets/win.mp3"))
+        if(!w.loadFromFile("Snake_Ladder/assets/win.mp3"))
         cout<<"Unable to load win sound\n";
         sf::Sound win(w);
 
@@ -480,7 +480,7 @@ cout<<RESET;
     void snake::process(int &number,int &flag)//number bynumber bo
     {
         sf::SoundBuffer hopp;
-        if(!hopp.loadFromFile("snake/assets/hop.mp3"))
+        if(!hopp.loadFromFile("Snake_Ladder/assets/hop.mp3"))
         {
             cout<<"Unable to load hop soun\n";
         }
@@ -514,12 +514,12 @@ cout<<RESET;
     void snake::ladderOrsnake(int &place)
     {
         sf::SoundBuffer down;
-        if(!down.loadFromFile("snake/assets/down.mp3"))
+        if(!down.loadFromFile("Snake_Ladder/assets/down.mp3"))
         cout<<"Unable to load down music file";
         sf::Sound d(down);
 
         sf::SoundBuffer up;
-        if(!up.loadFromFile("snake/assets/up.mp3"))
+        if(!up.loadFromFile("Snake_Ladder/assets/up.mp3"))
         cout<<"Unable to load down music file";
         sf::Sound u(up);
 
@@ -566,7 +566,7 @@ cout<<RESET;
             this_thread::sleep_for(chrono::seconds(2));
             place=71;
         }
-        if(place==21)
+        else if(place==21)
         {
             display();
             u.play();

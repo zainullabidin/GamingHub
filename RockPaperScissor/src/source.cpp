@@ -36,7 +36,7 @@
    void PlayRPS::mainplay()
    {
     sf::SoundBuffer bg;
-    if(!bg.loadFromFile("rps/assets/bgRPS.mp3"))
+    if(!bg.loadFromFile("RockPaperScissor/assets/bgRPS.mp3"))
     {
         cout<<"Unable to load background music\n";
     }
@@ -163,7 +163,7 @@
 
         while(flag||choice2<1||choice2>3)
         {
-            cout<<"\nPlease choose again "<<player1<<": "<<endl;
+            cout<<"\nPlease choose again "<<player2<<": "<<endl;
             system("say You entered wrong input.");
             cin>>choice2;
             if(cin.fail())
@@ -257,8 +257,11 @@
         choice2=rand()%3+1;
 
         if(choice2==1)
-        cout<<"\n\n\n\nComputer choosed Rock.\n\n";
-        this_thread::sleep_for(chrono::seconds(2));
+    cout<<"\n\n\n\nComputer chose Rock.\n\n";
+    else if(choice2==2)
+        cout<<"\n\n\n\nComputer chose Paper.\n\n";
+    else
+        cout<<"\n\n\n\nComputer chose Scissors.\n\n";
 
         //updating data
           checkwinstatus(choice1,choice2);
@@ -273,15 +276,15 @@
     void PlayRPS::checkwinstatus(int choice1,int choice2)
     {
         sf::SoundBuffer rockbuffer;
-        if(!rockbuffer.loadFromFile("rps/assets/rock.mp3"))
+        if(!rockbuffer.loadFromFile("RockPaperScissor/assets/rock.mp3"))
         cout<<"Unable to load rock breaking sound";
         sf::Sound rock(rockbuffer);
         sf::SoundBuffer paperbuffer;
-        if(!paperbuffer.loadFromFile("rps/assets/paper.mp3"))
+        if(!paperbuffer.loadFromFile("RockPaperScissor/assets/paper.mp3"))
         cout<<"Unable to load paper sound";
         sf::Sound paper(paperbuffer);
         sf::SoundBuffer sbuffer;
-        if(!sbuffer.loadFromFile("rps/assets/scissor.mp3"))
+        if(!sbuffer.loadFromFile("RockPaperScissor/assets/scissor.mp3"))
         cout<<"Unable to load scissor clank sound";
         sf::Sound s(sbuffer);
 
@@ -414,10 +417,10 @@ for(int i=0;i<stlen(a);i++)
       if(hearts1)
       {
         clearScreen();
-        endgame(player2);
+        endgame(player1);
         
          leaderboard obj;
-        obj.AddRecord(player2,"Rock_Paper_Scissor",1);
+        obj.AddRecord(player1,"Rock_Paper_Scissor",1);
            this_thread::sleep_for(chrono::seconds(2));
 
       }
@@ -425,10 +428,10 @@ for(int i=0;i<stlen(a);i++)
       else
       {
         clearScreen();
-        endgame(player1);
+        endgame(player2);
         
         leaderboard obj;
-        obj.AddRecord(player1,"Rock_Paper_Scissor",1);
+        obj.AddRecord(player2,"Rock_Paper_Scissor",1);
         this_thread::sleep_for(chrono::seconds(2));
         
       }

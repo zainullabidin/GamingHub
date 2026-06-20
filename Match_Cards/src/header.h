@@ -57,8 +57,8 @@ public:
       {
         for(int i=0;i<2;i++)
         {
-            delete arr[i];
-            delete flags[i];
+            delete [] arr[i];
+            delete [] flags[i];
         }
         delete []arr;
         delete []flags;

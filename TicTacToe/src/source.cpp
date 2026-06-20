@@ -1,5 +1,5 @@
 #include"header.h"
-#include"leaderboard_header"
+#include"leaderboard_header.h"
 
    void Playtic::updatename(string name,int player)//setter 
    {
@@ -19,7 +19,7 @@
    void Playtic::mainplay()
    {
             sf::SoundBuffer bgbuffer;
-        if(!bgbuffer.loadFromFile("tic/assets/bgmusic.mp3"))
+        if(!bgbuffer.loadFromFile("TicTacToe/assets/bgmusic.mp3"))
         cout<<"Unable to load bacground music";
         sf::Sound bg(bgbuffer);
 
@@ -74,12 +74,13 @@
 
     bool Playtic::process(int choicerow,int choicecol)//input validator
     {
+        if(choicecol<1||choicecol>3||choicerow<1||choicerow>3)
+        return true;
         if(arr[choicerow-1][choicecol-1]=='O'||arr[choicerow-1][choicecol-1]=='X')
         {
             return true;
         }
-        if(choicecol<1||choicecol>3||choicerow<1||choicerow>3)
-        return true;
+        
 
  
             return false;
@@ -504,7 +505,7 @@ cout<<"                                                    _____________________
         cin>>name;
         updatename( name,1);
         cout<<"Enter Your Name Player 02: ";
-        system ("Dear Player 2. Enter your beautiful name");
+        system ("say Dear Player 2. Enter your beautiful name");
         cin>>name;
         updatename( name,2);
         while(true)
@@ -516,7 +517,7 @@ cout<<"                                                    _____________________
         
 
         //player 1 enters
-        cout<<"\n\nEnter the indexes (row,col)  "<<player1<<": ";
+        cout<<"\n\nEnter the indexes (row,col)  "<<player2<<": ";
         cin>>r>>c;
         if(cin.fail())
     {
@@ -525,17 +526,27 @@ cout<<"                                                    _____________________
         flag=1;
 
     }
-    while((r<1||r>3)||(c>3||c<1))
+    while((r<1||r>3)||(c>3||c<1)||flag)
     {
         cout<<"\n\nEnter the indexes (row,col)  "<<player1<<": ";
         cin>>r>>c;
+
+       if(cin.fail())
+        {
+        cin.clear();
+        cin.ignore(10000, '\n');
+        flag=1;
+
+        }
+        else
+        flag=0;
 
     }
 
         while(process(r,c)||flag)
         {
             cout<<"\nPlease choose another place "<<player1<<": "<<endl;
-            system("You entered wrong index.");
+            system("say You entered wrong index.");
             cin>>r>>c;
             if(cin.fail())
     {
@@ -557,7 +568,10 @@ cout<<"                                                    _____________________
         
             cout<<"\n\n\n\n\n                                                        "<<"Player "<<player1<<" won"<<endl;
             getchar();
+            leaderboard obj; 
+            obj.AddRecord(player1,"TicTacToe",1);
             break;
+            
         }
         
         else if(x==0)
@@ -591,10 +605,20 @@ cout<<"                                                    _____________________
         flag=1;
 
     }
-     while((r<1||r>3)||(c>3||c<1))
+     while((r<1||r>3)||(c>3||c<1)||flag)
     {
         cout<<"\n\nEnter the indexes (row,col)  "<<player1<<": ";
         cin>>r>>c;
+         if(cin.fail())
+        {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            flag=1;
+
+        }
+     else 
+     flag=0;
+
 
     }
         
@@ -640,6 +664,7 @@ cout<<"                                                    _____________________
             getchar();
             break;
 
+
         }
         else if(x==2)
         {
@@ -647,6 +672,8 @@ cout<<"                                                    _____________________
             endgame();
         
             cout<<"\n\n\n\n\n                                                        "<<"Match Draw";
+
+
             getchar();
             break;
         }
@@ -759,6 +786,8 @@ cout<<"                                                    _____________________
             endgame();
         
             cout<<"\n\n\n\n\n                                                        "<<"Player "<<player1<<" won"<<endl;
+            leaderboard obj; 
+            obj.AddRecord(player1,"TicTacToe",1);
             getchar();
             break;
         }
@@ -769,6 +798,7 @@ cout<<"                                                    _____________________
             clearScreen();
             endgame();
             cout<<"\n\n\n\n\n                                                        "<<"Computer won"<<endl;
+            leaderboard obj; obj.AddRecord(player2,"TicTacToe",1);
             getchar();
             break;
 

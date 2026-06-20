@@ -1,4 +1,5 @@
 #include"header.h"
+#include"leaderboard_header.h"
 
     void c::name()
     {
@@ -784,7 +785,7 @@ cout<<"                                                            ███    
     void c::mainplay()
     {
         sf::SoundBuffer bg;
-        if(!bg.loadFromFile("connect4/assets/c4.mp3"))
+        if(!bg.loadFromFile("Connect_04/assets/c4.mp3"))
         cout<<"Unlable to load bg music";
         sf::Sound b(bg);
         b.setLooping(true);
@@ -960,7 +961,7 @@ cout<<"                                                            ███    
          if(!flag)
            { cout<<"Plese enter the colum of your choice "<<player2<<" (1-4) :";
             cin>>choice2;}
-        if(flag||choice1>4||choice1<1)
+        if(flag||choice2>4||choice2<1)
 
             {system("say Enter Again");
             cout<<"Enter Again :";
@@ -997,7 +998,7 @@ cout<<"                                                            ███    
     int c::process(int player)
     {
         sf::SoundBuffer c4;
-        if(!c4.loadFromFile("connect4/assets/c4p.mp3"))
+        if(!c4.loadFromFile("Connect_04/assets/c4p.mp3"))
         cout<<"Audio error";
         sf::Sound p(c4);
 
@@ -1123,34 +1124,31 @@ cout<<"                                                            ███    
      //  if(arr[0][0]=='O'&&arr[1][1]=='O'&&arr[2][2]=='O'&&arr[3][3]);
             
 
-        if((flagO1||flagO2||flagO3||flagO4||flago1||flago2||flago3||flago4)||(arr[0][0]=='A'&&arr[1][1]=='A'&&arr[2][2]=='A'&&arr[3][3]=='A')||(arr[3][0]=='A'&&arr[2][1]=='A'&&arr[1][2]=='A'&&arr[0][3]=='A'))
+        if((flagO1||flagO2||flagO3||flagO4||flago1||flago2||flago3||flago4)||(arr[0][0]=='O'&&arr[1][1]=='O'&&arr[2][2]=='O'&&arr[3][3]=='O')||(arr[3][0]=='O'&&arr[2][1]=='O'&&arr[1][2]=='O'&&arr[0][3]=='O'))
         {
             return 2;
         }
-        else if(flagX1||flagX2||flagX3||flagX4||flagx1||flagx2||flagx3||flagx4||(arr[0][0]=='O'&&arr[1][1]=='O'&&arr[2][2]=='O'&&arr[3][3]=='O')||(arr[3][0]=='O'&&arr[2][1]=='O'&&arr[1][2]=='O'&&arr[0][3]=='O'))
+        else if(flagX1||flagX2||flagX3||flagX4||flagx1||flagx2||flagx3||flagx4||(arr[0][0]=='A'&&arr[1][1]=='A'&&arr[2][2]=='A'&&arr[3][3]=='A')||(arr[3][0]=='A'&&arr[2][1]=='A'&&arr[1][2]=='A'&&arr[0][3]=='A'))
         {
             return 1;
         }
-        else 
+        else
         {
-            draw=0;
+            draw=1;
    
             for(int i=0;i<4;i++){
                 for(int j=0;j<4;j++){
                     if(arr[i][j]=='\0')
                     {
-                        draw=1;
+                        draw=0;
                         break;
                     }
 
                 }
-                if(!draw)
-                break;
-    
             }
 
         }
-        if(!draw)
+        if(draw)
         return 3;
  
         return 0;

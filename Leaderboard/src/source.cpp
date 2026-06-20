@@ -30,6 +30,7 @@ void leaderboard::DisplayLeaderboard()
 
 {
   
+    SortRecords();
 
     for(int i=0;i<lines;i++)
     {  
@@ -116,7 +117,7 @@ void leaderboard::LoadFromFile()
       
 
       name[i][index]='\0';
-      cout<<name[i];
+
 
       file.unget();
        
@@ -135,7 +136,7 @@ void leaderboard::SortRecords()
     {
         for(int j=0;j<lines;j++)
         {
-            if(score[i]<score[j])
+            if(score[i]>score[j])
             {
                 int temp=score[j];
                 score[j]=score[i];

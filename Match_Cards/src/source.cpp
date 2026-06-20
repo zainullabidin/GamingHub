@@ -188,7 +188,7 @@
         cout<<"CHOICE: ";
         cout<<choice<<endl;
        int row=0,col=0;
-        if(choice<=10)
+        if(choice<10)
         {
             row=0;
             col=choice%10-1;
@@ -277,7 +277,7 @@
     void match::processmatch()
     {
         sf::SoundBuffer match;
-        if(!match.loadFromFile("match/assets/up.mp3"))
+        if(!match.loadFromFile("Match_Cards/assets/match.mp3"))
         {
             cout<<"Unable to load music\n";
         }
@@ -438,7 +438,7 @@
     void match::mainplay()
     {
         sf::SoundBuffer bg;
-        if(!bg.loadFromFile("match/assets/mbg.mp3"))
+        if(!bg.loadFromFile("Match_Cards/assets/background.mp3"))
         cout<<"Unable to load the bg music";
         sf::Sound m(bg);
 
@@ -559,7 +559,7 @@
             cout<<endl<<endl<<endl;
             hidecards();
             
-            cout<<"Enter the card number to reveal the card "<<player1<<"\n\n";
+            cout<<"Enter the card number to reveal the card "<<player2<<"\n\n";
             cin>>choice2;
             if(cin.fail())
             {
@@ -613,7 +613,7 @@ getchar();
             hidecards();
             hidecards();
 
-            cout<<"Enter the card number to reveal the card "<<player1<<"\n\n";
+            cout<<"Enter the card number to reveal the card "<<player2<<"\n\n";
             cin>>choice1;
             flag=0;
             if(cin.fail())
@@ -849,6 +849,7 @@ getchar();
             while(choice1<1||choice1>20||flag||x)
             {
                 choice1=rand()%20+1;
+                x=validate(1);
               flag=0;
             }
 
@@ -870,6 +871,7 @@ getchar();
             while(choice1==choice2||x)
             {
                 choice2=rand()%20+1;
+                x=validate(2);
             }
             updateturn(2);
             display();
